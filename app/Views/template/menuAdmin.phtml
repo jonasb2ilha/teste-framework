@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+  <a class="navbar-brand" href="/">Blog</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/home"><i class="fas fa-home"></i> Home</a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/posts"><i class="fas fa-ruble-sign"></i> Posts</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/categorias"><i class="fas fa-ruble-sign"></i> Categorias</a>
+        </li>
+		
+		<li class="nav-item">
+            <a class="nav-link" href="/admin/users"><i class="fas fa-users"></i> Users</a>
+        </li>
+
+    </ul>
+    <ul class="navbar-nav">
+        <?php if(session('logged')): ?> 
+        <li class="pull-right my-2 my-sm-0">
+            <a href="" class="nav-link text-right"><i class="fas fa-shield-alt"></i> Admin - <?php echo session('user')['user']; ?></a>
+        </li>
+        <?php endif; ?>
+        <?php if(!session('logged')): ?> 
+        <li class="pull-right my-2 my-sm-0">
+            <a class="nav-link text-right" href="/login">Login</a>
+        </li>
+        <li class="pull-right my-2 my-sm-0">
+            <a class="nav-link text-right" href="/registre">Registre</a>
+        </li>
+        <?php endif; ?>
+        <?php if(session('logged')): ?> 
+        <li class="pull-right my-2 my-sm-0">
+            <a class="nav-link text-right" href="/logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
+        </li>
+        <?php endif; ?>
+    </ul>
+  </div>
+</nav>
+                <!-- <a href="" class="text-twitter"><i class="fab fa-twitter"></i></a>
+                <a href="" class="text-danger"><i class="fab fa-youtube"></i></a> -->

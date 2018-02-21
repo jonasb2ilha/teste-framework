@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+    <title><?= $title; ?> Micro FrameWork</title>
+  </head>
+  <body>
+
+    <?php 
+
+      if (session('user')['role'] == 3) :
+        require_once "menuAdmin.phtml"; 
+      endif;
+
+      if (!session('logged') or session('user')['role'] == 1) :
+        require_once "menu.phtml"; 
+      endif;
+    ?>

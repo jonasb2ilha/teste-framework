@@ -1,0 +1,48 @@
+
+
+<div class="container">
+
+    <div class="row row-bottom-20">
+
+        <div class="col-md-6 offset-md-3">
+            
+            <div class="card ">
+                <div class="card-header text-center">
+                    <h2><i class="fa fa-unlock"></i> Realize seu login</h2>
+                </div>
+                <div class="card-body">
+                    <?=get('message')?>
+                    <?=get('error')?>
+
+            
+                    <form method="post" action="/loginAuth">
+                        <div class="form-group ">
+                            <label class="col-form-label"><i class="fas fa-user"></i> Usuário</label>
+                            <input type="text" class="form-control <?= $this->errors['user'][0] ? 'is-invalid' : '' ?>" name="user" placeholder="Enter usuário" value="">
+                            <?php if (isset($this->errors['user'][0])) :  ?>
+                                <div class="invalid-feedback"><?= $this->errors['user'][0] ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"><i class="fas fa-lock"></i> Password</label>
+                            <input type="password" class="form-control <?= $this->errors['password'][0] ? 'is-invalid' : '' ?>" name="password" placeholder="Password">
+                            <?php if (isset($this->errors['password'][0])) :  ?>
+                                <div class="invalid-feedback"><?= $this->errors['password'][0] ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary "><i class="fas fa-check-circle"></i> Submit</button>
+                       
+                    </form>
+                </div>
+                <div class="card-footer text-muted text-center">
+                     <small class="text-right" ><a href="/recuperar">Esqueci minha senha</a></small>
+                </div>
+            </div>
+        
+        </div>
+
+    </div>
+
+</div>
